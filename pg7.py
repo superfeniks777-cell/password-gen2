@@ -3,11 +3,9 @@ import os
 import random
 import string
 
-
 def generate_password(length=12):
     all_characters = string.ascii_letters + string.digits + string.punctuation
     return "".join(random.choice(all_characters) for _ in range(length))
-
 
 def save_password_to_file(password):
     try:
@@ -22,7 +20,6 @@ def save_password_to_file(password):
             russian_path = os.path.join(
                 os.path.expanduser("~"), "Рабочий стол"
             )
-
             if os.path.exists(onedrive_path):
                 desktop_path = onedrive_path
             elif os.path.exists(russian_path):
@@ -39,8 +36,6 @@ def save_password_to_file(password):
 
     except Exception as e:
         print(f"\n⚠️ ОШИБКА ЗАПИСИ: {e}")
-
-
 
 if __name__ == "__main__":
     print("--- Генератор Паролей ---")
@@ -73,10 +68,7 @@ if __name__ == "__main__":
             print("Ошибка! Нужно ввести ЧИСЛО или букву 'q'.")
             continue
 
-
         new_password = generate_password(user_length)
         print(f"Ваш новый пароль: {new_password}")
 
         save_password_to_file(new_password)
-
-
